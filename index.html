@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<link rel="shortcut icon" type="image/ico" href="./assets/favicon.ico" />
+<link rel="stylesheet" href="./assets/styles.css">
+<title>ChanceJazz - Practice Music Theory</title>
+</head>
+
+<body style="font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif;" ;="" bgcolor="#092336" class="vsc-initialized">
+
+
+  <audio id="strong" src="assets/Strong.wav" type="audio/wav"></audio>
+  <audio id="weak" src="assets/Weak.wav" type="audio/wav"></audio>
+
+  <div class="banner">
+    <h1 style="display:inline"><b>chance jazz&nbsp;&nbsp;</b></h1>
+    <p style="display:inline">improve your improv</p>
+  </div>
+
+  <div class="optBanner">
+    <div class="buttons" id="keysButton" onclick="options(keysWrapper)" onmouseover="show(keysWrapper,this)"
+      onmouseout="hide(keysWrapper,this)">
+      <p>keys</p>
+    </div>
+    <div class="buttons" id="timeButton" onclick="options(timeWrapper)" onmouseover="show(timeWrapper,this)"
+      onmouseout="hide(timeWrapper,this)">
+      <p>time</p>
+    </div>
+    <div class="buttons" id="chordsButton" onclick="options(chordsWrapper)" onmouseover="show(chordsWrapper,this)"
+      onmouseout="hide(chordsWrapper,this)">
+      <p>chords</p>
+    </div>
+    <div class="buttons" id="scalesButton" onclick="options(scalesWrapper)" onmouseover="show(scalesWrapper,this)"
+      onmouseout="hide(scalesWrapper,this)">
+      <p>scales</p>
+    </div>
+    <div class="buttons" style="float:right" id="vidButton" onclick="options(vidWrapper)"
+      onmouseover="show(vidWrapper,this)" onmouseout="hide(vidWrapper,this)">
+      <p>videos</p>
+    </div>
+    <div class="buttons" style="float:right" id="instButton" onclick="options(instWrapper)"
+      onmouseover="show(instWrapper,this)" onmouseout="hide(instWrapper,this)">
+      <p>instructions</p>
+    </div>
+    <div class="buttons" style="float:right" id="aboutButton" onclick="options(aboutWrapper)"
+      onmouseover="show(aboutWrapper,this)" onmouseout="hide(aboutWrapper,this)">
+      <p>about</p>
+    </div>
+  </div>
+
+  <div class="optionsWrapper">
+
+
+    <div id="aboutWrapper" class="aboutWrapper" name="options" onmouseover="show(aboutWrapper,aboutButton)"
+      onclick="hide(aboutWrapper,aboutButton)" onmouseout="hide(aboutWrapper,aboutButton)">
+      Chance Jazz is a random chord and scale generator aimed to help you become better at improvisation by
+      testing your musical knowledge, creativity and reaction times.
+      <br>
+      <br>
+      <p>This website was inspired by Warren Burt's "Without Glue" program and series of works. It shows each chord or
+        scale for a number of seconds before changing.
+        <br><br>
+      </p>
+      <p>
+        Originally built by <a href="https://www.reddit.com/user/MONGEN_beats">u/MONGEN_beats</a>. Revived and modified by <a href="https://github.com/aziz512">@aziz512</a>
+      </p>
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License"
+          style="border-width:0; margin-top: 20px;" src="./assets/88x31.png"></a><a rel="license"></a>
+      <p></p>
+    </div>
+    <div class="instWrapper" id="instWrapper" name="options" onmouseover="show(instWrapper,instButton)"
+      onclick="hide(instWrapper,instButton)" onmouseout="hide(instWrapper,instButton)">
+      <p>Chance jazz tests your musical knowledge with a random set of scales and chords.<br>
+        Improvise over each idea as it countdowns to the next.<br>
+        There are no wrong answers, just play what you see.</p>
+    </div>
+    <div class="vidWrapper" id="vidWrapper" name="options" onmouseover="show(vidWrapper,vidButton)"
+      onclick="hide(vidWrapper,vidButton)" onmouseout="hide(vidWrapper,vidButton)">
+      <p>We want to see your chops! Comment thread for your improvisations coming soon!</p>
+    </div>
+
+
+    <div class="keysWrapper" id="keysWrapper" name="options" onmouseover="show(keysWrapper,keysButton)"
+      onmouseout="hide(keysWrapper,keysButton)">
+
+      <div class="inWrap">
+        <div class="optionsHeader">
+          <label>&nbsp;&nbsp;<b><span style="font-family: monospace; font-size: 1.1em;">♯</span>'s</b>
+            <input type="checkbox" value="All Sharps" onchange="optSwitch(formSharps, this)" style="float:right"
+              checked=""> <br></label>
+        </div>
+        <form id="formSharps">
+          <label>C<span style="font-family: monospace">♯</span><input type="checkbox" value="C♯" id="Cs"
+              checked=""><br></label>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          <label>F<span style="font-family: monospace">♯</span><input type="checkbox" value="F♯" id="Fs"
+              checked=""><br></label>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+        </form>
+      </div>
+
+      <div class="inWrap">
+        <div class="optionsHeader">
+          &nbsp;&nbsp;<b><span style="font-family: monospace; font-size: 1.1em;">♮</span>'s</b>
+          <input type="checkbox" value="allNaturals" onchange="optSwitch(formNaturals, this)" style="float:right"
+            checked=""><br>
+        </div>
+        <form id="formNaturals">
+          C<input type="checkbox" value="C" id="C" checked=""><br>
+          D<input type="checkbox" value="D" id="D" checked=""><br>
+          E<input type="checkbox" value="E" id="E" checked=""><br>
+          F<input type="checkbox" value="F" id="F" checked=""><br>
+          G<input type="checkbox" value="G" id="G" checked=""><br>
+          A<input type="checkbox" value="A" id="A" checked=""><br>
+          B<input type="checkbox" value="B" id="B" checked=""><br>
+        </form>
+      </div>
+
+      <div class="inWrap">
+        <div class="optionsHeader">
+          <b><span style="font-family: monospace; font-size: 1.1em;">♭</span>'s</b>
+          <input type="checkbox" value="All Flats" onchange="optSwitch(formFlats, this)" style="float:right"
+            checked=""><br>
+        </div>
+        <form id="formFlats">
+          C<span style="font-family: monospace">♭</span><input type="checkbox" value="C♭" id="Cb" checked=""><br>
+          D<span style="font-family: monospace">♭</span><input type="checkbox" value="D♭" id="Db" checked=""><br>
+          E<span style="font-family: monospace">♭</span><input type="checkbox" value="E♭" id="Eb" checked=""><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          G<span style="font-family: monospace">♭</span><input type="checkbox" value="G♭" id="Gb" checked=""><br>
+          A<span style="font-family: monospace">♭</span><input type="checkbox" value="A♭" id="Ab" checked=""><br>
+          B<span style="font-family: monospace">♭</span><input type="checkbox" value="B♭" id="Bb" checked=""><br>
+        </form>
+      </div>
+    </div>
+
+    <div class="timeWrapper" id="timeWrapper" name="options" onmouseover="show(timeWrapper,timeButton)"
+      onmouseout="hide(timeWrapper,timeButton)">
+      <div class="bars" onclick="barFunc()" id="barId">
+
+        <div style="float:left">
+          Bars:
+        </div>
+        <input style="width:15%" type="text" id="barMin" value="2">
+        - <input style="width:15%" type="text" id="barMax" value="8">
+        <br>
+        <span style="color:#ABADB2">
+          BPM:
+        </span>
+        <input style="width:15%" type="text" id="BPM" value="90">
+        <br>
+        <div style="float:left">
+          Metronome:
+        </div>
+        <br>
+        <div class="square" id="square1" onclick="squares(square1)" style="background-color:black; margin=0px;">1</div>
+        <div class="square" id="square2" onclick="squares(square2)" style="background-color:rgb(149, 165, 166)">2</div>
+        <div class="square" id="square3" onclick="squares(square3)" style="background-color:black">3</div>
+        <div class="square" id="square4" onclick="squares(square4)" style="background-color:rgb(149, 165, 166)">4</div>
+        <br>
+      </div>
+      <br>
+      <div class="seconds" onclick="secondFunc()" id="secondId" style="float:right">
+        <div style="float:left">
+          Seconds:
+        </div>
+        <br>
+        <span style="color:#ABADB2">Time range (in sec):</span>
+        <input style="width:15%" type="text" id="timeMin" value="5">
+        <input style="width:15%" type="text" id="timeMax" value="28"><br>
+      </div>
+    </div>
+
+    <!-- </div> -->
+
+    <div class="chordsWrapper" id="chordsWrapper" name="options" onmouseover="show(chordsWrapper,chordsButton)"
+      onmouseout="hide(chordsWrapper,chordsButton)">
+      <!-- https://en.wikibooks.org/wiki/Music_Theory/Complete_List_of_Chord_Patterns -->
+
+      <div style="float:right">
+        <div class="optionsHeader">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>13</b><input type="checkbox" onchange="optSwitch(form13,this)"
+            name="all"><br>
+        </div>
+        <form id="form13">
+          maj13<input type="checkbox" value="maj13" name="maj" id="maj13"><br>
+          maj<span style="font-family: monospace">♭</span>13<input type="checkbox" value="maj♭13" name="maj"
+            id="majb13"><br>
+          min13<input type="checkbox" value="min13" name="min" id="m13"><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          13<input type="checkbox" value="13" name="dom" id="dom13"><br>
+        </form>
+      </div>
+
+      <div style="float:right">
+        <div class="optionsHeader">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>11</b><input type="checkbox" onchange="optSwitch(form11,this)"
+            name="all"><br>
+        </div>
+        <form id="form11">
+          maj<span style="font-family: monospace">♯</span>11<input type="checkbox" value="maj♯11" name="maj"
+            id="majs11"><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          min11<input type="checkbox" value="min11" name="min" id="m11"><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          <span style="font-family: monospace">♯</span>11<input type="checkbox" value=" ♯11" name="dom" id="s11"><br>
+        </form>
+      </div>
+
+      <div style="float:right">
+        <div class="optionsHeader">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>9</b><input type="checkbox" onchange="optSwitch(form9,this)" name="all"
+            checked=""><br>
+        </div>
+        <form id="form9">
+          maj9<input type="checkbox" value="maj9" name="maj" id="maj9" checked=""><br>
+          maj69<input type="checkbox" value="maj69" name="maj" id="maj69" checked=""><br>
+          min9<input type="checkbox" value="min9" name="min" id="min9" checked=""><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          9<input type="checkbox" value="9" name="dom" id="dom9" checked=""><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          <span style="font-family: monospace">♭</span>9sus<input type="checkbox" value=" ♭9sus" name="sus"
+            id="b9sus"><br>
+        </form>
+      </div>
+
+      <div style="float:right">
+        <div class="optionsHeader">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>7</b><input type="checkbox" onchange="optSwitch(form7,this)" name="all"
+            checked=""><br>
+        </div>
+        <form id="form7">
+          maj7<input type="checkbox" value="maj7" name="maj" id="maj7" checked=""><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          min7<input type="checkbox" value="min7" name="min" id="min7" checked=""><br>
+          mMaj7<input type="checkbox" value="mMaj7" name="min" id="mMaj7"><br>
+          7<input type="checkbox" value="7" name="dom" checked=""><br>
+          7<span style="font-family: monospace">♭</span>9<input type="checkbox" value="7♭9" name="dom" id="dom7"><br>
+          7<span style="font-family: monospace">♯</span>9<input type="checkbox" value="7♯9" name="dom"><br>
+          alt7<input type="checkbox" value="alt7" name="dom" id="alt7"><br>
+          dim7<input type="checkbox" value="dim7" name="dim" id="dim7" checked=""><br>
+          m7<span style="font-family: monospace">♭</span>5<input type="checkbox" value="m7♭5" name="dim" id="m7b5"
+            checked=""><br>
+          7sus4<input type="checkbox" value="7sus4" name="sus" id="dom7sus4"><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          7<span style="font-family: monospace">♯</span>5<input type="checkbox" value="7♯5" name="aug" id="dom7s5"><br>
+        </form>
+      </div>
+
+      <div style="float:right">
+        <div class="optionsHeader">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>6</b><input type="checkbox" onchange="optSwitch(form6,this)" name="all"
+            checked=""><br>
+        </div>
+        <form id="form6">
+          maj6<input type="checkbox" value="maj6" name="maj" id="maj6" checked=""><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          min6<input type="checkbox" value="min6" name="min" id="min6" checked=""><br>
+        </form>
+      </div>
+
+      <div style="float:right">
+        <div class="optionsHeader">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>5</b><input type="checkbox" onchange="optSwitch(form5,this)" name="all"
+            checked=""><br>
+        </div>
+        <form id="form5">
+          maj<input type="checkbox" value="maj" name="maj" id="maj" checked=""><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          min<input type="checkbox" value="min" name="min" id="min" checked=""><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          dim<input type="checkbox" value="dim" name="dim" id="dim" checked=""><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          sus4<input type="checkbox" value="sus4" name="sus" id="sus4"><br>
+          sus2<input type="checkbox" value="sus2" name="sus" id="sus2"><br>
+          aug<input type="checkbox" value="aug" name="aug" id="aug"><br>
+        </form>
+      </div>
+
+      <div style="float:right;" class="optionsHeader">
+        <b>Chords</b><input type="checkbox" onchange="allSwitch(this)" name="all"><br>
+        <form id="formAll">
+          <b>maj</b><input type="checkbox" onchange="majSwitch(this)" name="all" checked=""><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          <b>min</b><input type="checkbox" onchange="minSwitch(this)" name="all" checked=""><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          <b>dom</b><input type="checkbox" onchange="domSwitch(this)" name="all" checked=""><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          <b>dim</b><input type="checkbox" onchange="dimSwitch(this)" name="all" checked=""><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          <b>sus</b><input type="checkbox" onchange="susSwitch(this)" name="all"><br>
+          <input type="checkbox" style="opacity:0" ;=""><br>
+          <b>aug</b><input type="checkbox" onchange="augSwitch(this)" name="all"><br>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="scalesWrapper" id="scalesWrapper" name="options" onmouseover="show(scalesWrapper,scalesButton)"
+      onmouseout="hide(scalesWrapper,scalesButton)">
+
+      <div style="float:right">
+        <div class="optionsHeader">
+          &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+          <b>Misc. Scales</b><input type="checkbox" value="miscModes" onchange="optSwitch(formMisc,this)"
+            checked=""><br>
+        </div>
+        <form id="formMisc">
+          Chromatic<input type="checkbox" value=" Chromatic" checked=""><br>
+          Whole Tone<input type="checkbox" value=" Whole Tone" checked=""><br>
+          Major Pentatonic<input type="checkbox" value=" Major Pentatonic" checked=""><br>
+          Minor Pentatonic<input type="checkbox" value=" Minor Pentatonic" checked=""><br>
+          Blues<input type="checkbox" value=" Blues" checked=""><br>
+          Spanish Gypsy<input type="checkbox" value=" Spanish Gypsy"><br>
+          Whole Half<input type="checkbox" value=" Whole Half"><br>
+          Half Whole<input type="checkbox" value=" Half Whole"><br>
+          Major Bebop<input type="checkbox" value=" Major Bebop"><br>
+          Minor Bebop<input type="checkbox" value=" Minor Bebop"><br>
+        </form>
+      </div>
+
+      <div style="float:right">
+        <div class="optionsHeader">
+          &nbsp; &nbsp;
+          <b>Melodic Minor Modes</b><input type="checkbox" value="melodicMinorModes"
+            onchange="optSwitch(formMinor,this)"><br>
+        </div>
+        <form id="formMinor">
+          Melodic Minor<input type="checkbox" value=" Melodic Minor"><br>
+          Dorian <span style="font-family: monospace">♭</span>9<input type="checkbox" value=" Dorian ♭9"><br>
+          Lydian Augmented<input type="checkbox" value=" Lydian Augmented"><br>
+          Lydian Dominant<input type="checkbox" value=" Lydian Dominant"><br>
+          Mixolydian <span style="font-family: monospace">♭</span>6<input type="checkbox" value=" Mixolydian ♭6"><br>
+          Locrian <span style="font-family: monospace">♮</span>2<input type="checkbox" value=" Locrian ♮2"><br>
+          Super Locrian<input type="checkbox" value=" Super Locrian"><br>
+        </form>
+      </div>
+
+      <div style="float:right">
+        <div class="optionsHeader">
+          <b>Major Modes</b><input type="checkbox" value="majorModes" onchange="optSwitch(formMajor,this)"
+            checked=""><br>
+        </div>
+        <form id="formMajor">
+          Ionian<input type="checkbox" value=" Ionian" checked=""><br>
+          Dorian<input type="checkbox" value=" Dorian" checked=""><br>
+          Phyrgian<input type="checkbox" value=" Phyrgian" checked=""><br>
+          Lydian<input type="checkbox" value=" Lydian" checked=""><br>
+          Mixolydian<input type="checkbox" value=" Mixolydian" checked=""><br>
+          Aeolian <input type="checkbox" value=" Aeolian" checked=""><br>
+          Locrian<input type="checkbox" value=" Locrian" checked=""><br>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <br>
+  <div class="content">
+    <div id="intro-info">
+      <p>Welcome! This website is designed to help you practice and master music theory by improvizing.</p>
+      <p>For example, if you just learned about the Lydian scale, you'd choose it in the scales menu.
+        Then, you can customize the rhythm, keys, and chords you want to play in the respective menus.</p>
+    </div>
+
+    <div class="controls">
+      <div class="muteButton" onclick="muteSwitch()">
+        <img id="mute" src="./assets/mute.png" title="Unmute/mute the metronome <m key>" alt="unmute/mute the metronome">
+      </div>
+      <div class="muteButton" onclick="startFinish()">
+        <img id="pause" src="./assets/pause.png" title="Pause/play <Space>" alt="pause/play">
+      </div>
+    </div>
+    <div class="scalesOutput">
+      <p id="demo">C♭ Locrian for 1 bars.</p>
+      <p id="noteHelp" style="font-size: 0.4em; display: block;">1--♭2--♭3--4--♭5--♭6--♭7</p>
+    </div>
+  </div>
+
+
+  <script src="assets/main.js"></script>
+</body>
+
+</html>
